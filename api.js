@@ -5,7 +5,8 @@ import moreWildDares from './dare.js';
 
 
 const app=express()
-const Port = 3000
+const PORT = process.env.PORT || 3000;
+
 
 app.use(cors({
   origin: '*',
@@ -124,6 +125,8 @@ app.post('/room/:roomId/score',(req,res)=>{
 
 })
 
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
-app.listen(Port, () => {
-  console.log(`we are on PORT ${Port}`)})
+export default app;
